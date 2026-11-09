@@ -1,6 +1,6 @@
 # Detector Preclone
 
-Este repositorio contiene el detector local de la tesis. El detector recibe texto Markdown, lo divide en fragmentos que conservan sus líneas, consulta un modelo binario ya entrenado y emite una clasificación con el fragmento de mayor puntaje cuando corresponde.
+Este repositorio contiene el detector local del proyecto. El detector recibe texto Markdown, lo divide en fragmentos que conservan sus líneas, consulta un modelo binario ya entrenado y emite una clasificación con el fragmento de mayor puntaje cuando corresponde.
 
 El [material del profesor](datos/profesor/) contiene 1.200 textos de 50 escenarios y su registro de procedencia. Las [fuentes adicionales](datos/adicionales/) reúnen los registros de CloneGuard, ClawHub, MaliciousSkillBench y los README de GitHub identificados para ampliar el corpus. Las copias locales de los archivos externos se guardan en `datos/adicionales/descargas/`.
 
