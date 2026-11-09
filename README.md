@@ -21,6 +21,10 @@ El repositorio incluye el modelo entrenado `markdown-mixto-v3`. La segunda orden
 
 El artefacto joblib contiene un diccionario con `formato` igual a 1, `version`, `modelo`, `umbral_inferior` y `umbral_superior`. El objeto `modelo` contiene la transformación de texto y el clasificador. Debe exponer `predict_proba` y `classes_` con las clases `[0, 1]`. Carga únicamente artefactos que tú hayas generado o cuyo origen sea confiable, porque joblib deserializa objetos de Python.
 
+## Usar Preclone desde un agente
+
+La [guía de instalación del MCP y la skill](docs/mcp.md) cubre Windows y Linux. El servidor analiza con el modelo v3 y pide autorización antes del checkout.
+
 ## Entrenar la línea base
 
 ```sh
