@@ -1,0 +1,15 @@
+{
+  "titulo": "Agent Skill Malware",
+  "autor": "yoonholee",
+  "origen": "https://huggingface.co/datasets/yoonholee/agent-skill-malware",
+  "archivo_entregado": "skills.jsonl",
+  "sha256": "c7ae101d3d37f53af7dc7b2afc5ea15fe7c51794ef879bdbf2a7f5a342d4e3db",
+  "campos": ["content", "id", "label", "skill_name"],
+  "tipo_documento": "SKILL.md",
+  "filas_recibidas_por_etiqueta": {
+    "benign": 223,
+    "malicious": 124
+  },
+  "observacion": "La ficha anuncia 127 muestras maliciosas. El archivo recibido contiene 124 y el visor muestra 347 filas en total.",
+  "estado": "Etiquetas de origen pendientes de validación y variantes pendientes de agrupación."
+}

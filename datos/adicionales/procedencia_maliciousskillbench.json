@@ -1,0 +1,38 @@
+{
+  "titulo": "MaliciousSkillBench",
+  "origen": "https://huggingface.co/datasets/ProtectSkills/MaliciousSkillBench",
+  "estudio": "https://arxiv.org/abs/2608.19901",
+  "paquetes": "https://github.com/protectskills/MaliciousSkillBench/tree/main/packages",
+  "archivo_entregado": "primary.parquet",
+  "bytes": 28600360,
+  "sha256": "1d6382017f259bde0b699d402318f3c03f16b2e8ed2363a346b77a5465f06a06",
+  "filas_tabla_por_etiqueta": {
+    "0": 2235,
+    "1": 7505
+  },
+  "fuentes_filtradas": [
+    "SRC002",
+    "SRC004"
+  ],
+  "criterio_seleccion": "La fila tiene SRC002 o SRC004 en source_ids.",
+  "filas_por_fuente_principal": {
+    "SRC001": 23,
+    "SRC002": 153,
+    "SRC004": 33
+  },
+  "filas_por_estado_preclone": {
+    "candidato_prioritario": 7,
+    "demostracion_explicita": 1,
+    "duplicado_local": 3,
+    "fuente_principal_distinta": 19,
+    "pendiente_revision_textual": 93,
+    "texto_editado_en_origen": 2,
+    "variante_de_instalacion": 84
+  },
+  "coincidencias_locales": {
+    "skills.jsonl": 3,
+    "train.jsonl": 0
+  },
+  "catalogo": "clasificacion/maliciousskillbench.csv",
+  "observacion": "La etiqueta del proveedor se conserva. El catalogo incluye la huella del texto recibido y la huella original declarada. La agrupacion por patron de instalacion es preliminar."
+}

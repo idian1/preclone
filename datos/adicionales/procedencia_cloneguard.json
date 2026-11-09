@@ -1,0 +1,26 @@
+{
+  "titulo": "Prompt Injection Repository File Dataset",
+  "autor": "prodnull",
+  "anio": 2026,
+  "proyecto": "CloneGuard",
+  "origen": "https://huggingface.co/datasets/prodnull/prompt-injection-repo-dataset",
+  "version_declarada": "v2",
+  "licencia_declarada": "Apache-2.0",
+  "archivo_entregado": "train.jsonl",
+  "sha256": "7dff37d6aa6812aa1cb8b136da89d651ad78a33a9bd0d06049d51c650f9a8fcc",
+  "campos": ["text", "label"],
+  "etiquetas": {
+    "0": "benigno",
+    "1": "inyección de prompt"
+  },
+  "filas_por_etiqueta": {
+    "0": 2755,
+    "1": 2916
+  },
+  "textos_distintos_por_etiqueta": {
+    "0": 2753,
+    "1": 2916
+  },
+  "uso_previsto": "Fuente complementaria de textos etiquetados, pendiente de selección.",
+  "limitacion": "El archivo mezcla formatos y solo contiene texto y etiqueta. Las filas carecen de ruta y repositorio de origen para verificar documentos Markdown completos."
+}

@@ -1,0 +1,22 @@
+{
+  "tipo_documento": "README.md",
+  "tipo_de_caso": "Inyección plantada para pruebas",
+  "estado": "Archivos identificados en GitHub, pendientes de incorporar al corpus.",
+  "muestras": [
+    {
+      "repositorio": "harshwasan/jev-sentinel",
+      "origen": "https://github.com/harshwasan/jev-sentinel/blob/main/sandboxes/fixtures/02-injection/README.md",
+      "git_blob_sha": "e770cb13bbc22bb923f77702147d9a97274cec1d"
+    },
+    {
+      "repositorio": "harryc295/agent-airlock",
+      "origen": "https://github.com/harryc295/agent-airlock/blob/main/demo/poisoned-repo/README.md",
+      "git_blob_sha": "d3dba7b49857e382c488406393f80dc772bb3390"
+    },
+    {
+      "repositorio": "loeanxi/dsh-injection-guard",
+      "origen": "https://github.com/loeanxi/dsh-injection-guard/blob/main/examples/malicious-repo/README.md",
+      "git_blob_sha": "fda01b22d9eae9b0a5eb5af71dc91c0884a7c506"
+    }
+  ]
+}
