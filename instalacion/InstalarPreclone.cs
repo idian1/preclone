@@ -19,7 +19,7 @@ internal static class InstalarPreclone
     private static int Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-        Console.WriteLine("Instalar Preclone para Codex");
+        Console.WriteLine("Instalar Preclone");
         try
         {
             var datos = Instalar(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory));
@@ -86,10 +86,12 @@ internal static class InstalarPreclone
             "Comando: " + pythonEntorno,
             "Argumento: " + servidor,
             "",
+            "Usa estos valores para registrar preclone en tu cliente MCP local.",
             "En Codex de escritorio, abre Ajustes > Complementos > MCP.",
             "Agrega un servidor local o edita preclone si ya existe.",
             "Copia cada valor en su campo. La ruta de iniciar_mcp.py va como un solo argumento.",
-            "Guarda y abre cualquier chat local de Codex.",
+            "Para Claude Code, Cursor o VS Code, consulta docs/mcp.md.",
+            "Guarda y abre un chat local en tu cliente.",
             "Para probar, escribe Usa Preclone para revisar el Markdown de <URL pública de GitHub>.",
             ""
         });

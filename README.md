@@ -4,13 +4,13 @@ Preclone revisa los archivos Markdown de un repositorio público de GitHub. Si p
 
 ## Instalar en Windows
 
-Necesitas Windows x64, Git, Codex de escritorio y conexión a internet para la instalación.
+Necesitas Windows x64, Git, un cliente MCP local y conexión a internet para la instalación.
 
-1. Clona la rama `integracion-mcp` o extrae su ZIP completo. [Rama de instalación en GitHub](https://github.com/idian1/preclone/tree/integracion-mcp)
+1. Clona el repositorio o descarga y extrae su ZIP completo. [Repositorio en GitHub](https://github.com/idian1/preclone)
 2. Abre `Instalar-Preclone.exe` junto a `AGENTS.md`. Cuando termine, abre `Datos-MCP.txt` en esa misma carpeta.
-3. En Codex, entra a **Ajustes → Complementos → MCP** y agrega o edita `preclone`. Elige `stdio` y pega el comando y el único argumento de `Datos-MCP.txt`. Guarda.
+3. En Codex de escritorio, entra a **Ajustes → Complementos → MCP** y agrega o edita `preclone`. Elige `stdio`, pega el comando y el único argumento de `Datos-MCP.txt` y guarda la entrada. Si usas Claude Code, Cursor o VS Code, consulta el [registro en otros agentes](docs/mcp.md#otros-agentes).
 
-## Usar desde Codex
+## Usar desde el chat
 
 En cualquier chat local, escribe **Usa Preclone para revisar el Markdown de** seguido de la URL pública de GitHub. Si quieres guardar el repositorio, escribe **Usa Preclone para clonar** seguido de la URL. Después de la revisión, la ventana de autorización te permite aceptar o cancelar.
 
