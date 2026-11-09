@@ -1,0 +1,477 @@
+{
+  "version": "markdown-mixto-v3",
+  "scikit_learn": "1.6.1",
+  "umbrales": {
+    "inferior": 0.2699999999999999,
+    "superior": 0.2799999999999999
+  },
+  "configuracion": {
+    "peso_profesor": 0.15,
+    "caracteres": true,
+    "peso_skillfortify": 1.0,
+    "C": 6.0,
+    "validacion_promedio_por_dominio": 0.9829545454545454,
+    "validacion": {
+      "exactitud_balanceada": 0.9772727272727273,
+      "deteccion": 1.0,
+      "benignos_correctos": 0.9545454545454546,
+      "por_clase": {
+        "0": {
+          "alerta": 3,
+          "sin_indicios": 63,
+          "abstencion": 0,
+          "total": 66
+        },
+        "1": {
+          "alerta": 51,
+          "sin_indicios": 0,
+          "abstencion": 0,
+          "total": 51
+        }
+      }
+    }
+  },
+  "candidatos": [
+    {
+      "peso_profesor": 0.15,
+      "caracteres": false,
+      "peso_skillfortify": 1.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9488636363636364,
+      "validacion": {
+        "exactitud_balanceada": 0.9318181818181819,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.8636363636363636,
+        "por_clase": {
+          "0": {
+            "alerta": 8,
+            "sin_indicios": 57,
+            "abstencion": 1,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": false,
+      "peso_skillfortify": 1.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9602272727272727,
+      "validacion": {
+        "exactitud_balanceada": 0.9402852049910874,
+        "deteccion": 0.9411764705882353,
+        "benignos_correctos": 0.9393939393939394,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 62,
+            "abstencion": 1,
+            "total": 66
+          },
+          "1": {
+            "alerta": 48,
+            "sin_indicios": 2,
+            "abstencion": 1,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": true,
+      "peso_skillfortify": 1.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9602272727272727,
+      "validacion": {
+        "exactitud_balanceada": 0.9425133689839572,
+        "deteccion": 0.9607843137254902,
+        "benignos_correctos": 0.9242424242424242,
+        "por_clase": {
+          "0": {
+            "alerta": 4,
+            "sin_indicios": 61,
+            "abstencion": 1,
+            "total": 66
+          },
+          "1": {
+            "alerta": 49,
+            "sin_indicios": 1,
+            "abstencion": 1,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": true,
+      "peso_skillfortify": 1.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9829545454545454,
+      "validacion": {
+        "exactitud_balanceada": 0.9772727272727273,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.9545454545454546,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 63,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": false,
+      "peso_skillfortify": 3.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9488636363636364,
+      "validacion": {
+        "exactitud_balanceada": 0.9295900178253119,
+        "deteccion": 0.9803921568627451,
+        "benignos_correctos": 0.8787878787878788,
+        "por_clase": {
+          "0": {
+            "alerta": 8,
+            "sin_indicios": 58,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 50,
+            "sin_indicios": 0,
+            "abstencion": 1,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": false,
+      "peso_skillfortify": 3.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9659090909090909,
+      "validacion": {
+        "exactitud_balanceada": 0.9523172905525846,
+        "deteccion": 0.9803921568627451,
+        "benignos_correctos": 0.9242424242424242,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 61,
+            "abstencion": 2,
+            "total": 66
+          },
+          "1": {
+            "alerta": 50,
+            "sin_indicios": 0,
+            "abstencion": 1,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": true,
+      "peso_skillfortify": 3.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9715909090909091,
+      "validacion": {
+        "exactitud_balanceada": 0.9598930481283423,
+        "deteccion": 0.9803921568627451,
+        "benignos_correctos": 0.9393939393939394,
+        "por_clase": {
+          "0": {
+            "alerta": 4,
+            "sin_indicios": 62,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 50,
+            "sin_indicios": 1,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.15,
+      "caracteres": true,
+      "peso_skillfortify": 3.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9829545454545454,
+      "validacion": {
+        "exactitud_balanceada": 0.9772727272727273,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.9545454545454546,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 63,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.45,
+      "caracteres": false,
+      "peso_skillfortify": 3.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9488636363636364,
+      "validacion": {
+        "exactitud_balanceada": 0.9318181818181819,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.8636363636363636,
+        "por_clase": {
+          "0": {
+            "alerta": 8,
+            "sin_indicios": 57,
+            "abstencion": 1,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.45,
+      "caracteres": false,
+      "peso_skillfortify": 3.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9659090909090909,
+      "validacion": {
+        "exactitud_balanceada": 0.9545454545454546,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.9090909090909091,
+        "por_clase": {
+          "0": {
+            "alerta": 6,
+            "sin_indicios": 60,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.45,
+      "caracteres": true,
+      "peso_skillfortify": 3.0,
+      "C": 1.0,
+      "validacion_promedio_por_dominio": 0.9659090909090908,
+      "validacion": {
+        "exactitud_balanceada": 0.9478609625668449,
+        "deteccion": 0.9411764705882353,
+        "benignos_correctos": 0.9545454545454546,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 63,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 48,
+            "sin_indicios": 1,
+            "abstencion": 2,
+            "total": 51
+          }
+        }
+      }
+    },
+    {
+      "peso_profesor": 0.45,
+      "caracteres": true,
+      "peso_skillfortify": 3.0,
+      "C": 6.0,
+      "validacion_promedio_por_dominio": 0.9829545454545454,
+      "validacion": {
+        "exactitud_balanceada": 0.9772727272727273,
+        "deteccion": 1.0,
+        "benignos_correctos": 0.9545454545454546,
+        "por_clase": {
+          "0": {
+            "alerta": 3,
+            "sin_indicios": 63,
+            "abstencion": 0,
+            "total": 66
+          },
+          "1": {
+            "alerta": 51,
+            "sin_indicios": 0,
+            "abstencion": 0,
+            "total": 51
+          }
+        }
+      }
+    }
+  ],
+  "entrenamiento_por_fuente_y_clase": {
+    "SRC010/1": 149,
+    "SRC010/0": 149,
+    "ClawHub/1": 105,
+    "ClawHub/0": 223,
+    "SRC012/1": 15,
+    "SRC012/0": 21,
+    "CloneGuard/1": 13,
+    "CloneGuard/0": 13,
+    "profesor/0": 420,
+    "profesor/1": 420
+  },
+  "pruebas": {
+    "laboratorio_pareado": {
+      "exactitud_balanceada": 0.8934426229508197,
+      "deteccion": 0.9836065573770492,
+      "benignos_correctos": 0.8032786885245902,
+      "por_clase": {
+        "0": {
+          "alerta": 12,
+          "sin_indicios": 49,
+          "abstencion": 0,
+          "total": 61
+        },
+        "1": {
+          "alerta": 60,
+          "sin_indicios": 0,
+          "abstencion": 1,
+          "total": 61
+        }
+      }
+    },
+    "skillfortify_familias_reservadas": {
+      "exactitud_balanceada": 1.0,
+      "deteccion": 1.0,
+      "benignos_correctos": 1.0,
+      "por_clase": {
+        "0": {
+          "alerta": 0,
+          "sin_indicios": 47,
+          "abstencion": 0,
+          "total": 47
+        },
+        "1": {
+          "alerta": 26,
+          "sin_indicios": 0,
+          "abstencion": 0,
+          "total": 26
+        }
+      }
+    },
+    "transferencia_real": {
+      "exactitud_balanceada": 0.7949999999999999,
+      "deteccion": 0.9,
+      "benignos_correctos": 0.69,
+      "por_clase": {
+        "0": {
+          "alerta": 30,
+          "sin_indicios": 69,
+          "abstencion": 1,
+          "total": 100
+        },
+        "1": {
+          "alerta": 9,
+          "sin_indicios": 1,
+          "abstencion": 0,
+          "total": 10
+        }
+      }
+    },
+    "escenarios_profesor": {
+      "exactitud_balanceada": 1.0,
+      "deteccion": 1.0,
+      "benignos_correctos": 1.0,
+      "por_clase": {
+        "0": {
+          "alerta": 0,
+          "sin_indicios": 84,
+          "abstencion": 0,
+          "total": 84
+        },
+        "1": {
+          "alerta": 84,
+          "sin_indicios": 0,
+          "abstencion": 0,
+          "total": 84
+        }
+      }
+    },
+    "agenttrap_fuente_reservada": {
+      "exactitud_balanceada": 0.6314338235294118,
+      "deteccion": 0.29411764705882354,
+      "benignos_correctos": 0.96875,
+      "por_clase": {
+        "0": {
+          "alerta": 1,
+          "sin_indicios": 31,
+          "abstencion": 0,
+          "total": 32
+        },
+        "1": {
+          "alerta": 15,
+          "sin_indicios": 35,
+          "abstencion": 1,
+          "total": 51
+        }
+      }
+    }
+  },
+  "sha256_modelo": "2b9d1250348edec8e05763e4b53f98cab33566f4995b35413240c2b83e06b6fe",
+  "total_externo": {
+    "exactitud_balanceada": 0.7799549549549549,
+    "deteccion": 0.7432432432432432,
+    "benignos_correctos": 0.8166666666666667,
+    "por_clase": {
+      "0": {
+        "alerta": 43,
+        "sin_indicios": 196,
+        "abstencion": 1,
+        "total": 240
+      },
+      "1": {
+        "alerta": 110,
+        "sin_indicios": 36,
+        "abstencion": 2,
+        "total": 148
+      }
+    }
+  }
+}

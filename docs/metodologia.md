@@ -15,3 +15,17 @@ Las particiones de entrenamiento, validación y prueba se fijarán antes de frag
 El catálogo registra `sin_asignar` mientras se revisan las etiquetas y se construyen los grupos. La asignación final se documentará por separado a partir de los IDs del catálogo.
 
 El detector puntúa fragmentos solapados y toma el mayor puntaje del documento. En o por encima del umbral superior devuelve **No seguro**. En o por debajo del inferior devuelve **Sin indicios detectados**. Entre ambos, o si el texto es insuficiente, devuelve **No identificado**. El fragmento mostrado permite localizar el puntaje más alto. La evaluación futura registrará por separado alertas, falsas alarmas, abstenciones e inyecciones que quedaron bajo el umbral inferior.
+
+## Línea base de escenarios
+
+La versión `base-escenarios-v1` asigna 35 escenarios del profesor a entrenamiento, ocho a validación y siete a prueba. Usa semilla 42. Ajusta TF-IDF de palabras y pares de palabras y una regresión logística sobre los fragmentos del conjunto de entrenamiento. Los umbrales se eligen con los máximos por texto de validación. Si las clases se solapan, el intervalo de abstención cubre ese solapamiento. Si se separan, los umbrales quedan en el primer y segundo tercio de la distancia entre ambas clases.
+
+La prueba de transferencia aplica los umbrales ya fijados a los Markdown de laboratorio con evidencia revisada y a los casos reales prioritarios. Presenta por separado los controles pareados con etiqueta de benchmark y la documentación real con etiqueta benigna de origen. El informe registra los tres resultados del detector para cada clase, así como los IDs y escenarios utilizados. Los escenarios del profesor comparten familias de ataques entre particiones, así que su prueba mide generalización a escenarios distintos dentro de esas familias.
+
+## Versiones con documentos externos
+
+`markdown-mixto-v2` incorpora pares de SkillTrustBench y ejemplos de ClawHub. Conserva los escenarios del profesor con un peso menor al de cada documento externo. Para un positivo con evidencia localizada, el ajuste usa las ventanas que contienen esas líneas. La evaluación puntúa el documento entero. Los pares de laboratorio quedan juntos y las plantillas se reservan por partición. Se excluyen coincidencias de nombre, familia estructural y texto normalizado entre ajuste, validación y prueba.
+
+`markdown-mixto-v3` añade los fragmentos priorizados y controles candidatos de CloneGuard, así como documentos sintéticos de SkillFortifyBench. SkillFortifyBench se divide por familias positivas y por nombre declarado. La selección del modelo y los umbrales usa el promedio de la exactitud balanceada en la validación pareada y sintética. AgentTrap se mantiene fuera de ajuste y calibración. Sus etiquetas de origen describen el caso de prueba y pueden depender de archivos que acompañan al Markdown. Se conserva una prueba de transferencia real con positivos prioritarios y controles benignos etiquetados por la fuente.
+
+La exactitud balanceada promedia la proporción de positivos que generan una alerta y la proporción de negativos que reciben `Sin indicios detectados`. Las abstenciones cuentan como errores en ambos denominadores. Los resultados de cada fuente se reportan por separado.

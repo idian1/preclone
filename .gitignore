@@ -4,3 +4,9 @@ __pycache__/
 *.egg-info/
 *.joblib
 /datos/adicionales/descargas/
+/artefactos/*
+!/artefactos/v3/
+/artefactos/v3/*
+!/artefactos/v3/modelo.joblib
+!/artefactos/v3/evaluacion.json
+!/artefactos/v3/particiones.csv

@@ -14,12 +14,32 @@ Instala el proyecto con Python 3.11 o posterior.
 
 ```sh
 python -m pip install -e .
-python -m preclone ejemplo.md --modelo artefactos/modelo.joblib
+python -m preclone README.md --modelo artefactos/v3/modelo.joblib
 ```
 
-La segunda orden requiere el artefacto de un entrenamiento posterior. El resultado es JSON con estado, versión del modelo, puntaje y, cuando corresponde, fragmento y líneas de origen.
+El repositorio incluye el modelo entrenado `markdown-mixto-v3`. La segunda orden devuelve un JSON con estado, versión del modelo, puntaje y, cuando corresponde, fragmento y líneas de origen. La versión obtuvo un 78,0 % de exactitud balanceada en 388 muestras externas reservadas para prueba. [Evaluación](artefactos/v3/evaluacion.json) · [Particiones](artefactos/v3/particiones.csv)
 
 El artefacto joblib contiene un diccionario con `formato` igual a 1, `version`, `modelo`, `umbral_inferior` y `umbral_superior`. El objeto `modelo` contiene la transformación de texto y el clasificador. Debe exponer `predict_proba` y `classes_` con las clases `[0, 1]`. Carga únicamente artefactos que tú hayas generado o cuyo origen sea confiable, porque joblib deserializa objetos de Python.
+
+## Entrenar la línea base
+
+```sh
+python -m pip install -e .
+python -m preclone.entrenar
+```
+
+El entrenamiento escribe el modelo, el informe de evaluación y la lista de particiones en `artefactos/`. Para añadir las pruebas externas, instala con `python -m pip install -e ".[evaluacion]"`, coloca `primary.parquet` y `skills.jsonl` en `datos/adicionales/descargas/` y ejecuta `python -m preclone.entrenar --evaluar-adicionales`.
+
+Para reproducir los modelos mixtos con las tres fuentes descargadas, incluidas las muestras de `train.jsonl`, ejecuta:
+
+```sh
+python -m pip install -e ".[evaluacion]"
+python -m preclone.entrenar_mixto
+python -m preclone.entrenar_mixto --ampliar
+python -m preclone ejemplo.md --modelo artefactos/v3/modelo.joblib
+```
+
+Las versiones mixtas guardan el modelo, las métricas y las particiones en `artefactos/v2/` y `artefactos/v3/`.
 
 ## Verificar sin entrenar
 
