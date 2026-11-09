@@ -1,6 +1,6 @@
 # Detector Preclone
 
-Este repositorio contiene el detector local de la tesis. El detector recibe texto Markdown, lo divide en fragmentos que conservan sus líneas, consulta un modelo binario ya entrenado y emite una clasificación con el fragmento de mayor puntaje cuando corresponde.
+Este repositorio contiene el detector local del proyecto. El detector recibe texto Markdown, lo divide en fragmentos que conservan sus líneas, consulta un modelo binario ya entrenado y emite una clasificación con el fragmento de mayor puntaje cuando corresponde.
 
 El corpus de escenarios entregado por el profesor está en `datos/originales/` junto con su registro de procedencia. La especificación de etiquetas, particiones y evaluación está en [metodología](docs/metodologia.md).
 
