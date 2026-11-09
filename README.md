@@ -23,7 +23,7 @@ El artefacto joblib contiene un diccionario con `formato` igual a 1, `version`, 
 
 ## Usar Preclone desde un agente
 
-En Windows x64 con Git y Codex instalados, clona el repositorio o extrae el ZIP completo. Abre **`Instalar-Preclone.exe`** junto a `AGENTS.md`. Al terminar, abre esa carpeta como proyecto local en Codex y escribe **Clona** seguido de la URL de un repositorio público de GitHub.
+En Windows x64 con Git y Codex instalados, clona el repositorio o extrae el ZIP completo. Abre **`Instalar-Preclone.exe`** junto a `AGENTS.md`. El instalador prepara el servidor y genera `Datos-MCP.txt`. Usa esos datos para agregar Preclone en los ajustes de servidores MCP de Codex.
 
 La [guía del MCP y la skill](docs/mcp.md) también incluye los pasos para Linux y el registro manual. El servidor analiza con el modelo v3 y pide autorización antes del checkout.
 

@@ -6,7 +6,11 @@ Clona [idian1/preclone](https://github.com/idian1/preclone) o extrae el ZIP comp
 
 En Windows de 64 bits (x64), con Git y Codex instalados, abre **`Instalar-Preclone.exe`** con doble clic desde la misma carpeta que `AGENTS.md`. La instalación necesita internet para descargar Python y las dependencias.
 
-El instalador comprueba la descarga de Python 3.12.10 con Tk, prepara el entorno en `.preclone/` y escribe el registro MCP del proyecto en `.codex/config.toml`. Abre esa carpeta en Codex como proyecto local y acéptala como proyecto de confianza cuando la app lo solicite. Luego escribe **Clona** y la URL de un repositorio público de GitHub. Si mueves la carpeta, ejecuta el instalador de nuevo para actualizar las rutas.
+El instalador comprueba la descarga de Python 3.12.10 con Tk, prepara el entorno en `.preclone/` y deja `Datos-MCP.txt` junto al ejecutable.
+
+Abre **Ajustes → Complementos → MCP** en Codex. Agrega un servidor local o edita la entrada `preclone` si ya existe. Usa el nombre, el tipo, el comando y el único argumento de `Datos-MCP.txt`. Guarda y prueba el servidor desde un chat local de tu elección.
+
+Si mueves la carpeta de Preclone, ejecuta el instalador de nuevo y actualiza el comando y el argumento en Codex.
 
 ## Instalación manual
 
@@ -87,10 +91,11 @@ Si el cliente permite ajustar el tiempo de ejecución de cada herramienta, usa 4
 
 ## Probar desde el chat
 
-1. Abre la carpeta de Preclone en un chat local nuevo. Codex encuentra la skill en [`.agents/skills`](../.agents/skills/revisar-antes-de-clonar/SKILL.md). Si tu cliente busca las skills en otra ruta, copia allí la carpeta de la skill.
-2. Comprueba que `preclone` expone `revisar_markdown` y `clonar_protegido`. En Codex puedes comprobarlo con `/mcp`.
-3. Escribe **Clona** seguido de la URL HTTPS de un repositorio público de GitHub. La skill indica que debe invocarse `clonar_protegido`. Para solo revisar, escribe **Revisa el Markdown de** seguido de la URL.
-4. Pulsa **Cancelar** para terminar sin crear el clon o **Aceptar** para autorizar el checkout. Codex muestra la ruta y el HEAD verificado.
+1. En un chat local comprueba que `preclone` expone `revisar_markdown` y `clonar_protegido`. En Codex puedes comprobarlo con `/mcp`.
+2. Escribe **Usa Preclone para clonar** seguido de la URL HTTPS de un repositorio público de GitHub. Para solo revisar, escribe **Usa Preclone para revisar el Markdown de** seguido de la URL.
+3. Pulsa **Cancelar** para terminar sin crear el clon o **Aceptar** para autorizar el checkout. Codex muestra la ruta y el HEAD verificado.
+
+La [skill incluida](../.agents/skills/revisar-antes-de-clonar/SKILL.md) indica al agente qué herramienta usar cuando escribes **Clona** y una URL. Codex la detecta como skill de proyecto en la carpeta de Preclone. Si quieres usarla en otros proyectos, puedes copiarla a la carpeta de skills de tu usuario. El registro del servidor se hace por separado. [Cómo carga skills Codex](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
 
 El MCP usa Git para obtener los objetos de un commit y analiza los archivos `.md` y `.markdown` de ese árbol con el modelo entrenado v3. El checkout ocurre después de autorizarlo. La lectura admite repositorios públicos, hasta 256 archivos Markdown en UTF-8, 512 KiB por archivo y 8 MiB en total. La herramienta se detiene si excede esos límites o encuentra un Markdown que no puede leer. Los submódulos quedan fuera del árbol revisado.
 

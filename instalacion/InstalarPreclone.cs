@@ -15,8 +15,6 @@ internal static class InstalarPreclone
 {
     private const string PythonUrl = "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.zip";
     private const string PythonSha256 = "8649692DE846C56A7189D6DAE5C322AB20DEB1B5908B6F39426B62A36F39415D";
-    private const string Inicio = "# INICIO PRECLONE";
-    private const string Fin = "# FIN PRECLONE";
 
     private static int Main()
     {
@@ -24,10 +22,12 @@ internal static class InstalarPreclone
         Console.WriteLine("Instalar Preclone para Codex");
         try
         {
-            Instalar(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory));
+            var datos = Instalar(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory));
             Console.WriteLine();
-            Console.WriteLine("Listo. Abre esta carpeta como proyecto local en Codex.");
-            Console.WriteLine("Confía en el proyecto cuando Codex lo solicite. Después escribe Clona URL.");
+            Console.WriteLine("Preclone está listo para agregarlo desde los ajustes de servidores MCP.");
+            Console.WriteLine("Abre Datos-MCP.txt en esta carpeta y copia sus datos.");
+            Console.WriteLine();
+            Console.WriteLine(datos);
             return 0;
         }
         catch (Exception error)
@@ -45,12 +45,13 @@ internal static class InstalarPreclone
         }
     }
 
-    private static void Instalar(string raiz)
+    private static string Instalar(string raiz)
     {
         var modelo = Path.Combine(raiz, "artefactos", "v3", "modelo.joblib");
+        var servidor = Path.Combine(raiz, "instalacion", "iniciar_mcp.py");
         if (!File.Exists(Path.Combine(raiz, "AGENTS.md")) ||
             !File.Exists(Path.Combine(raiz, "pyproject.toml")) ||
-            !File.Exists(modelo))
+            !File.Exists(modelo) || !File.Exists(servidor))
         {
             throw new IOException("Abre el instalador junto a AGENTS.md en la carpeta completa de Preclone.");
         }
@@ -78,20 +79,16 @@ internal static class InstalarPreclone
             "import sys; from pathlib import Path; from preclone.detector import Detector; import preclone.mcp; Detector.cargar(Path(sys.argv[1]))",
             modelo);
 
-        var argumentos = new[] {
-            "-B", "-m", "preclone.mcp", "--modelo", modelo, "--destinos", Path.Combine(local, "clones")
-        };
-        var bloque = string.Join("\n", new[] {
-            Inicio,
-            "[mcp_servers.preclone]",
-            "command = " + CadenaToml(pythonEntorno),
-            "args = [" + string.Join(", ", argumentos.Select(CadenaToml)) + "]",
-            "env = { PRECLONE_GIT = " + CadenaToml(git) + " }",
-            "startup_timeout_sec = 30",
-            "tool_timeout_sec = 420",
-            Fin
-        }) + "\n";
-        RegistrarMcp(raiz, pythonEntorno, bloque);
+        File.WriteAllText(Path.Combine(local, "git.txt"), git, new UTF8Encoding(false));
+        var datos = string.Join(Environment.NewLine, new[] {
+            "Nombre: preclone",
+            "Tipo: stdio",
+            "Comando: " + pythonEntorno,
+            "Argumento: " + servidor,
+            ""
+        });
+        File.WriteAllText(Path.Combine(raiz, "Datos-MCP.txt"), datos, new UTF8Encoding(false));
+        return datos;
     }
 
     private static string BuscarGit()
@@ -158,59 +155,6 @@ internal static class InstalarPreclone
     {
         Ejecutar(python, raiz, "-I", "-c",
             "import struct, sys, tkinter; assert sys.version_info[:3] == (3, 12, 10); assert struct.calcsize('P') == 8; tkinter.Tcl().eval('info patchlevel')");
-    }
-
-    private static void RegistrarMcp(string raiz, string python, string bloque)
-    {
-        var directorio = Directory.CreateDirectory(Path.Combine(raiz, ".codex")).FullName;
-        var ruta = Path.Combine(directorio, "config.toml");
-        var existe = File.Exists(ruta);
-        var anterior = existe ? File.ReadAllText(ruta, Encoding.UTF8) : "";
-        var inicio = anterior.IndexOf(Inicio + "\n", StringComparison.Ordinal);
-        var fin = anterior.IndexOf(Fin + "\n", StringComparison.Ordinal);
-        string nuevo;
-        if (inicio == -1 && fin == -1)
-        {
-            nuevo = anterior.TrimEnd('\r', '\n') + (anterior.Length == 0 ? "" : "\n\n") + bloque;
-        }
-        else if (inicio >= 0 && fin > inicio)
-        {
-            nuevo = anterior.Substring(0, inicio) + bloque + anterior.Substring(fin + Fin.Length + 1);
-        }
-        else
-        {
-            throw new IOException("El bloque de Preclone en .codex\\config.toml está incompleto.");
-        }
-        if (nuevo == anterior)
-            return;
-
-        var temporal = Path.Combine(directorio, "preclone-" + Guid.NewGuid().ToString("N") + ".tmp");
-        try
-        {
-            File.WriteAllText(temporal, nuevo, new UTF8Encoding(false));
-            Ejecutar(python, raiz, "-I", "-c",
-                "import sys, tomllib; from pathlib import Path; tomllib.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))",
-                temporal);
-            if (existe)
-            {
-                if (File.ReadAllText(ruta, Encoding.UTF8) != anterior)
-                    throw new IOException("La configuración de Codex cambió durante la instalación. Vuelve a ejecutar el instalador.");
-                File.Replace(temporal, ruta, null);
-            }
-            else
-            {
-                File.Move(temporal, ruta);
-            }
-        }
-        finally
-        {
-            File.Delete(temporal);
-        }
-    }
-
-    private static string CadenaToml(string valor)
-    {
-        return "\"" + valor.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
     }
 
     private static void Ejecutar(string ejecutable, string directorio, params string[] argumentos)

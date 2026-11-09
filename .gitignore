@@ -2,6 +2,7 @@
 .venv-mcp/
 /.preclone/
 /.codex/config.toml
+/Datos-MCP.txt
 __pycache__/
 *.py[cod]
 *.egg-info/
