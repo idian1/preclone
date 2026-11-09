@@ -1,0 +1,11 @@
+{
+  "archivo_entregado": "MD_envenenamiento(1).zip",
+  "miembro": "MD_envenenamiento/agent_repo_guard_dataset.csv",
+  "sha256": "30c3879431d4f6c99b095d07db22b67318aee70abf149fb8e17c9a3a7706cc9e",
+  "origen_declarado_en_csv": "https://github.com/3nesdeniz/agentic-prompt-injection-boundary-pairs",
+  "etiquetas": {
+    "0": "benigno",
+    "1": "riesgoso"
+  },
+  "observacion": "Escenarios derivados; no son 1.200 archivos Markdown verificados de GitHub."
+}
