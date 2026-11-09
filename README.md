@@ -10,7 +10,7 @@ La [metodología](docs/metodologia.md) define las etiquetas, la separación por 
 
 ## Ejecutar el detector
 
-Instala el proyecto con Python 3.11 o posterior.
+Instala el proyecto con Python 3.11 a 3.13. La instalación en Windows se probó con Python 3.12.
 
 ```sh
 python -m pip install -e .
@@ -23,7 +23,9 @@ El artefacto joblib contiene un diccionario con `formato` igual a 1, `version`, 
 
 ## Usar Preclone desde un agente
 
-La [guía de instalación del MCP y la skill](docs/mcp.md) cubre Windows y Linux. El servidor analiza con el modelo v3 y pide autorización antes del checkout.
+En Windows x64 con Git y Codex instalados, clona el repositorio o extrae el ZIP completo. Abre **`Instalar-Preclone.exe`** junto a `AGENTS.md`. Al terminar, abre esa carpeta como proyecto local en Codex y escribe **Clona** seguido de la URL de un repositorio público de GitHub.
+
+La [guía del MCP y la skill](docs/mcp.md) también incluye los pasos para Linux y el registro manual. El servidor analiza con el modelo v3 y pide autorización antes del checkout.
 
 ## Entrenar la línea base
 

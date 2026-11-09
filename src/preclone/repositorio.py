@@ -49,9 +49,15 @@ def git(directorio: Path, *argumentos: str, entrada: bytes = b"", tiempo: int = 
     # Se ignoran configuraciones que puedan ejecutar filtros, hooks o reescribir la URL.
     entorno = {k: v for k, v in os.environ.items() if not k.upper().startswith("GIT_")}
     entorno.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull, GIT_TERMINAL_PROMPT="0")
-    rutas = os.pathsep.join(ruta for ruta in os.get_exec_path(entorno) if os.path.isabs(ruta))
-    modo = os.F_OK if os.name == "nt" else os.F_OK | os.X_OK
-    ejecutable = shutil.which("git", mode=modo, path=rutas)
+    ejecutable = entorno.get("PRECLONE_GIT")
+    if ejecutable:
+        ruta_git = Path(ejecutable)
+        if not ruta_git.is_absolute() or not ruta_git.is_file():
+            raise ProblemaRepositorio("La ruta de Git configurada para Preclone no es válida.")
+    else:
+        rutas = os.pathsep.join(ruta for ruta in os.get_exec_path(entorno) if os.path.isabs(ruta))
+        modo = os.F_OK if os.name == "nt" else os.F_OK | os.X_OK
+        ejecutable = shutil.which("git", mode=modo, path=rutas)
     if not ejecutable:
         raise ProblemaRepositorio("Git no está disponible en el PATH.")
     try:
