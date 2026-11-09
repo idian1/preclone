@@ -24,6 +24,8 @@ La prueba de transferencia aplica los umbrales ya fijados a los Markdown de labo
 
 ## Versiones con documentos externos
 
+La [clasificación de las fuentes adicionales](../datos/adicionales/clasificacion/fuentes.md) describe cómo se anotaron los documentos de cada colección.
+
 `markdown-mixto-v2` incorpora pares de SkillTrustBench y ejemplos de ClawHub. Conserva los escenarios del profesor con un peso menor al de cada documento externo. Para un positivo con evidencia localizada, el ajuste usa las ventanas que contienen esas líneas. La evaluación puntúa el documento entero. Los pares de laboratorio quedan juntos y las plantillas se reservan por partición. Se excluyen coincidencias de nombre, familia estructural y texto normalizado entre ajuste, validación y prueba.
 
 `markdown-mixto-v3` añade los fragmentos priorizados y controles candidatos de CloneGuard, así como documentos sintéticos de SkillFortifyBench. SkillFortifyBench se divide por familias positivas y por nombre declarado. La selección del modelo y los umbrales usa el promedio de la exactitud balanceada en la validación pareada y sintética. AgentTrap se mantiene fuera de ajuste y calibración. Sus etiquetas de origen describen el caso de prueba y pueden depender de archivos que acompañan al Markdown. Se conserva una prueba de transferencia real con positivos prioritarios y controles benignos etiquetados por la fuente.

@@ -85,6 +85,12 @@ internal static class InstalarPreclone
             "Tipo: stdio",
             "Comando: " + pythonEntorno,
             "Argumento: " + servidor,
+            "",
+            "En Codex de escritorio, abre Ajustes > Complementos > MCP.",
+            "Agrega un servidor local o edita preclone si ya existe.",
+            "Copia cada valor en su campo. La ruta de iniciar_mcp.py va como un solo argumento.",
+            "Guarda y abre cualquier chat local de Codex.",
+            "Para probar, escribe Usa Preclone para revisar el Markdown de <URL pública de GitHub>.",
             ""
         });
         File.WriteAllText(Path.Combine(raiz, "Datos-MCP.txt"), datos, new UTF8Encoding(false));
